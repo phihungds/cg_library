@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../module-css/login-style.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import '../../module-css/login-style.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Login() {
 
-    // const naviagte = useNavigate()
+    const naviagte = useNavigate()
     const [form, setForm] = useState({})
-    const [user, setUser] = useState([])
+    const [users, setUser] = useState([])
 
     useEffect(() => {
         axios.get(`https://my-json-server.typicode.com/phihungds/cg-libraries-db/users`)
@@ -17,20 +18,37 @@ export default function Login() {
                 setUser(res.data)
             })
             .catch((err) => { console.log(err) })
-            .finally(()=>{console.log(user)})
+            .finally(()=>{console.log(users)})
     }, [])
 
     const handleChange = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
     }
     const handleSubmit = () => {
-
+        const isUser = users.every(function(user) {
+            return user.email === form.email && user.password === form.password
+        })
+        if (isUser) {
+            Swal.fire(
+                'Access success!',
+                'You are in',
+                'success'
+              )
+            setTimeout(()=>{naviagte('/home')}, 500)
+            
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Access denied',
+                text: 'Email or password is not correct',
+              })
+        }
     }
     return (
+        <div className="main">
         <div className="wrapper">
             <div className="inner">
-
-
                 <form>
                     <h1>CG LIBRARIES</h1>
                     {/* <i class="bi bi-book-half"></i> */}
@@ -67,11 +85,12 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="d-grid">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="button" className="btn btn-primary"
+                        onClick={handleSubmit}>Submit</button>
                     </div>
-                    <p className="forgot-pass text-right"><a> Forgot password ?</a></p>
+                    <p className="forgot-pass text-right"><a href="#"> Forgot password ?</a></p>
                 </form></div>
-        </div>
+        </div></div>
     )
 
 }
