@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "phihung@admin.com",
+      "password": "1234",
+      "role": "admin"
+    }
+  ],
+  "libraries": [
+    {
+      "id": "001",
+      "name": "CG Knowledge",
+      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
+      "librarian": "Edward Snowden",
+      "amount": 216
+    },
+    {
+      "name": "CG Funny",
+      "librarian": "Chaplin",
+      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
+      "id": "003",
+      "amount": "123"
+    },
+    {
+      "name": "CG Family",
+      "librarian": "Tyrios Lannister",
+      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
+      "id": "004",
+      "amount": "0"
+    }
+  ],
+  "fields": [
+    {
+      "id": "101",
+      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+    },
+    {
+      "id": "101",
+      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+    },
+    {
+      "id": "101",
+      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+    },
+    {
+      "id": "101",
+      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+    }
+  ]
+}

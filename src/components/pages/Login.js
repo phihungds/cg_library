@@ -18,7 +18,7 @@ export default function Login() {
                 setUser(res.data)
             })
             .catch((err) => { console.log(err) })
-            .finally(()=>{console.log(users)})
+            
     }, [])
 
     const handleChange = (event) => {

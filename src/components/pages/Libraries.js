@@ -4,6 +4,7 @@ import '../../module-css/home.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import axios from "axios";
 import AddLibrary from "../buttons/addLibrary";
+import Swal from "sweetalert2";
 
 export default function Libraries() {
     const [libraries, setLibraries] = useState([])
@@ -11,7 +12,7 @@ export default function Libraries() {
     const [loading, setLoad] = useState(false)
     useEffect(() => {
         setLoad({loading: true})
-        axios.get(`https://my-json-server.typicode.com/phihungds/cg-libraries-db/libraries`)
+        axios.get(`http://localhost:3001/libraries`)
             .then((res) => {
                 setLibraries(res.data)  
             })
@@ -21,8 +22,25 @@ export default function Libraries() {
     }, [update])
 
 
-    const handleDelete = () => {
-
+    const handleDelete = (libraryId) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3001/libraries/${libraryId}`)
+                .then(()=> {
+                    setUpdate(value => value +1)
+                })
+                Swal.fire(
+                    'Đã xóa',
+                    `${libraries.name} đã bị xóa khỏi hệ thống`,
+                    'success'
+                )
+            }
+        })
     }
 
     
