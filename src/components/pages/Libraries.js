@@ -47,8 +47,7 @@ export default function Libraries() {
 
     return (
         <Layout>
-            <div className="main-home">
-                <div className="container">
+            
                     
                     <h1>Danh sách thư viện</h1><AddLibrary />
                     <div className="libra-list">
@@ -73,8 +72,7 @@ export default function Libraries() {
                     )
 
                     )}</div>
-                </div>
-            </div>
+                
         </Layout>
     )
 }

@@ -1,51 +1,84 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "phihung@admin.com",
-      "password": "1234",
-      "role": "admin"
-    }
-  ],
-  "libraries": [
-    {
-      "id": "001",
-      "name": "CG Knowledge",
-      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
-      "librarian": "Edward Snowden",
-      "amount": 216
-    },
-    {
-      "name": "CG Funny",
-      "librarian": "Chaplin",
-      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
-      "id": "003",
-      "amount": "123"
-    },
-    {
-      "name": "CG Family",
-      "librarian": "Tyrios Lannister",
-      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
-      "id": "004",
-      "amount": "0"
-    }
-  ],
-  "fields": [
-    {
-      "id": "101",
-      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
-    },
-    {
-      "id": "101",
-      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
-    },
-    {
-      "id": "101",
-      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
-    },
-    {
-      "id": "101",
-      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
-    }
-  ]
+    "users": [
+        {
+            "id": 1,
+            "email": "phihung@admin.com",
+            "password": "1234",
+            "role": "admin"
+        }
+    ],
+    "libraries": [
+        {
+            "id": "001",
+            "name": "CG Knowledge",
+            "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
+            "librarian": "Edward Snowden",
+            "amount": 216
+        },
+        {
+            "field": "Công nghệ, Khoa học - kỹ thuật",
+            "name": "CG Technology",
+            "librarian": "Nikola Tesla",
+            "id": "002",
+            "amount": "0"
+        },
+        {
+            "name": "CG Life Skills",
+            "librarian": "Rowan Atkitson",
+            "field": "Self-help, kỹ năng sống",
+            "id": "003",
+            "amount": "0"
+        }
+    ],
+    "fields": [
+        {
+            "id": "101",
+            "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+        },
+        {
+            "id": "102",
+            "content": "Thiếu nhi, mẹ và bé, thai giáo"
+        },
+        {
+            "id": "103",
+            "content": "Văn hóa, địa lý, du lịch"
+        },
+        {
+            "id": "104",
+            "content": "Công nghệ, Khoa học - kỹ thuật"
+        },
+        {
+            "id": "105",
+            "content": "Self-help, kỹ năng sống"
+        }
+    ],
+    "books": [
+        {
+            "id": "0001",
+            "isbn": "8935235213746",
+            "name": "Nhà giả kim",
+            "library": "Self-help, kỹ năng sống",
+            "idLibrary": "003",
+            "status": "Mới",
+            "borrows": "Đang cho mượn"
+        },
+        {
+            "id": "0001",
+            "isbn": "8935235213746",
+            "name": "Nhà giả kim",
+            "library": "Self-help, kỹ năng sống",
+            "idLibrary": "003",
+            "status": "Mới",
+            "borrows": "Đang cho mượn"
+        },
+        {
+            "id": "0001",
+            "isbn": "8935235213746",
+            "name": "Nhà giả kim",
+            "library": "Self-help, kỹ năng sống",
+            "idLibrary": "003",
+            "status": "Mới",
+            "borrows": "Đang cho mượn"
+        }
+    ]
 }

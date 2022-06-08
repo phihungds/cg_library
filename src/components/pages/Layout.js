@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../module-css/layout.css'
+import '../../module-css/home.css'
 
 export default function Layout({ children }) {
     const pages = ['home', 'libraries', 'books', 'borrows']
@@ -20,7 +21,9 @@ export default function Layout({ children }) {
                             </li>
                         ))}
                 </ul>
-                <div>{children}</div>
+                <div className="main-home">
+                    <div className="container">{children}</div>
+                    </div>
             </div>
         </>
     )

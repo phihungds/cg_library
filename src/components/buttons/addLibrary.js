@@ -11,7 +11,7 @@ export default function AddLibrary() {
     const [fields, setFields] = useState([])
     
     useEffect(()=>{
-        axios.get('https://my-json-server.typicode.com/phihungds/cg-libraries-db/fields')
+        axios.get('http://localhost:3001/fields')
         .then((res) => {setFields(res.data)})
         .catch((err) => { throw err })
     },[])
