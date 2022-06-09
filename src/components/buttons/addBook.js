@@ -3,31 +3,37 @@ import Swal from "sweetalert2";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
+
 import { Button, Form, FormControl, FormGroup, FormLabel, FormSelect, Modal, ModalBody, ModalFooter, ModalHeader, Row, Col } from "react-bootstrap";
 
-export default function AddLibrary({onSave}) {
-    const [newLibra, setNewLibra] = useState({})
+
+export default function AddBook() {
+    const [newBook, setNewBook] = useState({})
     const [open, setOpen] = useState(false);
-    const [fields, setFields] = useState([])
-    
+    const [libraries, setLibraries] = useState([])
+
     useEffect(()=>{
-        axios.get('http://localhost:3001/fields')
-        .then((res) => {setFields(res.data)})
+        axios.get('http://localhost:3001/libraries')
+        .then((res) => {setLibraries(res.data)})
         .catch((err) => { throw err })
     },[])
 
-    function handleChange(event) {
-        setNewLibra({
-            ...newLibra, 
+    const handleChange = (event) => {
+        setNewBook({
+            ...newBook,
             [event.target.name]: event.target.value
         })
-    }
+    } 
+
+    const handleClose = () => {setOpen(false)}
+    const handleOpen = () => {setOpen(true)}
+
     const handleClick = () => {
-        axios.post('http://localhost:3001/libraries', newLibra)
+        axios.post('http://localhost:3001/books', newBook)
             .then((res)=>{
                 Swal.fire(
                     'Hoàn tất',
-                    `Thư viện ${newLibra.content} đã được thêm !`,
+                    ` ${newBook.name} đã được thêm vào ${newBook.library} !`,
                     'success'
                 )
                 setOpen(false)
@@ -36,33 +42,30 @@ export default function AddLibrary({onSave}) {
             .finally(() => { window.location.reload(false) })
         
     }
-    const handleClose = () => {setOpen(false)}
-    const handleOpen = () => {setOpen(true)}
 
-    
     return (
         <>
         <Button variant="primary" onClick={handleOpen}>
-            + Tạo thư viện mới
+            + Thêm sách mới
         </Button>
 
         <Modal show={open} size="lg" onHide={handleClose}>
-            <ModalHeader><h2>Thông tin thư viện mới</h2></ModalHeader>
+            <ModalHeader><h2>Thông tin sách mới</h2></ModalHeader>
             <ModalBody>
                 <Form>
                     <FormGroup className="mb-3" >
-                        <FormLabel>Tên thư viện</FormLabel>
+                        <FormLabel>Tên sách</FormLabel>
                         <FormControl name="name" onChange={handleChange}/>
                     </FormGroup>
                     <FormGroup className="mb-3">
-                        <FormLabel>Tên thủ thư</FormLabel>
-                        <FormControl name="librarian" onChange={handleChange}/>
+                        <FormLabel>Tình trạng</FormLabel>
+                        <FormControl name="status" onChange={handleChange}/>
                     </FormGroup>
                     <FormGroup className="mb-3">
-                        <FormLabel>Lĩnh vực, thể loại</FormLabel>
-                        <FormSelect onClick={handleChange} name="field">
-                            {fields.map((field, index)=> (
-                                <option key={index} value={field.content}>{field.content}</option>
+                        <FormLabel>Thư viện </FormLabel>
+                        <FormSelect onClick={handleChange} name="library">
+                            {libraries.map((library, index)=> (
+                                <option key={index} value={library.name}>{library.name}</option>
                             ))}
                         </FormSelect>
                     </FormGroup>
@@ -73,8 +76,8 @@ export default function AddLibrary({onSave}) {
                             <FormControl name="id" type="number" onChange={handleChange}/>
                         </FormGroup>
                         <FormGroup as={Col}>
-                            <FormLabel>Số lượng sách</FormLabel>
-                            <FormControl type="number" name="amount" onChange={handleChange}/>
+                            <FormLabel>ISBN</FormLabel>
+                            <FormControl type="number" name="isbn" onChange={handleChange}/>
                         </FormGroup>
                     </Row>
                 </Form>

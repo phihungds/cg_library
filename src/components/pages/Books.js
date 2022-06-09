@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import axios from "axios";
 import { Button, Table } from "react-bootstrap";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import AddBook from "../buttons/addBook.js";
+import Swal from "sweetalert2";
 
 
 export default function Books() {
@@ -22,9 +24,32 @@ export default function Books() {
         .catch((err) => { console.log(err) })
         .finally(()=>{setLoad(false)})
     },[update])
+
+
+    const handleDelete = (bookId) => {
+        Swal.fire({
+            title: 'Bạn chắc chứ? Hành động này không thể hoàn tác',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3001/books/${bookId}`)
+                .then(()=> {
+                    setUpdate(value => value +1)
+                })
+                Swal.fire(
+                    'Đã xóa',
+                    `${books.name} đã bị xóa khỏi hệ thống`,
+                    'success'
+                )
+            }
+        })
+    }
+
     return (
         <Layout>
-            
+                <AddBook />
                 <Table striped bordered hover className="table-books">
                     <thead>
                         <tr>
@@ -46,7 +71,7 @@ export default function Books() {
                                 <td>{book.status}</td>
                                 <td>{book.borrows}</td>
                                 <td><Button><i class="bi bi-pencil-fill"></i></Button></td>
-                                <td><Button><i class="bi bi-x-lg"></i></Button></td>
+                                <td><Button id={book.id} onClick={()=>handleDelete(book.id)}><i class="bi bi-x-lg"></i></Button></td>
                             </tr>
                         ))}
                     </tbody>

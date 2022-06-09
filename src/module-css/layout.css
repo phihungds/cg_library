@@ -2,3 +2,9 @@
     background: #ce7646;
     font-family: 'baskerville', sans-serif;
 }
+.nav-bar i {
+    font-style: normal;
+}
+.nav-bar a {
+    text-transform: capitalize;
+}

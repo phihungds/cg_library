@@ -1,84 +1,96 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "phihung@admin.com",
-            "password": "1234",
-            "role": "admin"
-        }
-    ],
-    "libraries": [
-        {
-            "id": "001",
-            "name": "CG Knowledge",
-            "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
-            "librarian": "Edward Snowden",
-            "amount": 216
-        },
-        {
-            "field": "Công nghệ, Khoa học - kỹ thuật",
-            "name": "CG Technology",
-            "librarian": "Nikola Tesla",
-            "id": "002",
-            "amount": "0"
-        },
-        {
-            "name": "CG Life Skills",
-            "librarian": "Rowan Atkitson",
-            "field": "Self-help, kỹ năng sống",
-            "id": "003",
-            "amount": "0"
-        }
-    ],
-    "fields": [
-        {
-            "id": "101",
-            "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
-        },
-        {
-            "id": "102",
-            "content": "Thiếu nhi, mẹ và bé, thai giáo"
-        },
-        {
-            "id": "103",
-            "content": "Văn hóa, địa lý, du lịch"
-        },
-        {
-            "id": "104",
-            "content": "Công nghệ, Khoa học - kỹ thuật"
-        },
-        {
-            "id": "105",
-            "content": "Self-help, kỹ năng sống"
-        }
-    ],
-    "books": [
-        {
-            "id": "0001",
-            "isbn": "8935235213746",
-            "name": "Nhà giả kim",
-            "library": "Self-help, kỹ năng sống",
-            "idLibrary": "003",
-            "status": "Mới",
-            "borrows": "Đang cho mượn"
-        },
-        {
-            "id": "0001",
-            "isbn": "8935235213746",
-            "name": "Nhà giả kim",
-            "library": "Self-help, kỹ năng sống",
-            "idLibrary": "003",
-            "status": "Mới",
-            "borrows": "Đang cho mượn"
-        },
-        {
-            "id": "0001",
-            "isbn": "8935235213746",
-            "name": "Nhà giả kim",
-            "library": "Self-help, kỹ năng sống",
-            "idLibrary": "003",
-            "status": "Mới",
-            "borrows": "Đang cho mượn"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "phihung@admin.com",
+      "password": "1234",
+      "role": "admin"
+    }
+  ],
+  "libraries": [
+    {
+      "id": "001",
+      "name": "CG Knowledge",
+      "field": "Kinh tế, Lịch sử, Kiến thức tổng hợp",
+      "librarian": "Edward Snowden",
+      "amount": 216
+    },
+    {
+      "field": "Công nghệ, Khoa học - kỹ thuật",
+      "name": "CG Technology",
+      "librarian": "Nikola Tesla",
+      "id": "002",
+      "amount": "0"
+    },
+    {
+      "name": "CG Life Skills",
+      "librarian": "Rowan Atkitson",
+      "field": "Self-help, kỹ năng sống",
+      "id": "003",
+      "amount": "0"
+    }
+  ],
+  "fields": [
+    {
+      "id": "101",
+      "content": "Kinh tế, Lịch sử, Kiến thức tổng hợp"
+    },
+    {
+      "id": "102",
+      "content": "Thiếu nhi, mẹ và bé, thai giáo"
+    },
+    {
+      "id": "103",
+      "content": "Văn hóa, địa lý, du lịch"
+    },
+    {
+      "id": "104",
+      "content": "Công nghệ, Khoa học - kỹ thuật"
+    },
+    {
+      "id": "105",
+      "content": "Self-help, kỹ năng sống"
+    }
+  ],
+  "books": [
+    {
+      "id": "0001",
+      "isbn": "8935235213746",
+      "name": "Nhà giả kim",
+      "library": "CG Life Skills",
+      "idLibrary": "003",
+      "status": "Mới",
+      "borrows": "Đang cho mượn"
+    },
+    {
+      "id": "0001",
+      "isbn": "8935235213746",
+      "name": "Nhà giả kim",
+      "library": "CG Life Skills",
+      "idLibrary": "003",
+      "status": "Mới",
+      "borrows": "Đang cho mượn"
+    },
+    {
+      "name": "Bruce Wayne Nightcrawler",
+      "status": "Mới",
+      "library": "CG Technology",
+      "id": "0002",
+      "isbn": "893523521889"
+    },
+    {
+      "name": "Công nghiệp tương lai",
+      "status": "Mới",
+      "library": "CG Technology",
+      "id": "0003",
+      "isbn": "9786041143029"
+    },
+    {
+      "name": "Lập trình và cuộc sống",
+      "status": "Mới",
+      "library": "CG Technology",
+      "id": "0005",
+      "isbn": "9786048846848"
+    }
+  ]
 }
