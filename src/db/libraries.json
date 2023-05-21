@@ -85,12 +85,13 @@
       "id": "0003",
       "isbn": "9786041143029"
     },
-    {
-      "name": "Lập trình và cuộc sống",
-      "status": "Mới",
-      "library": "CG Technology",
-      "id": "0005",
-      "isbn": "9786048846848"
-    }
+  
+  {
+    "name": "Lập trình và cuộc sống",
+    "status": "Mới",
+    "library": "CG Technology",
+    "id": "0005",
+    "isbn": "9786048846848"
+  }
   ]
 }

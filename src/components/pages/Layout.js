@@ -23,7 +23,7 @@ export default function Layout({ children }) {
                         </li>
 
                     ))}
-                    <li className="nav-item"><a className="nav-link primary"><i class="bi bi-person-circle"> Account</i></a></li>
+                    <li className="nav-item"><a className="nav-link primary"><i className="bi bi-person-circle"> Account</i></a></li>
                 </ul>
 
             </div>

@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 export default function Books() {
     const [books, setBooks] = useState([])
     const [update, setUpdate] = useState(0)
+    const [selected, setSelect] = useState()
     const [loading, setLoad] = useState(false)
     const thead =['ID', 'ISBN','Tên sách', 'Thư viện', 'Tình trạng', 'Mượn/Trả']
 
@@ -27,22 +28,24 @@ export default function Books() {
 
 
     const handleDelete = (bookId) => {
+        
         Swal.fire({
-            title: 'Bạn chắc chứ? Hành động này không thể hoàn tác',
+            title: `Bạn chắc sẽ xóa sách này chứ? Hành động này không thể hoàn tác`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
+                Swal.fire(
+                    'Đã xóa',
+                    `Sách đã bị xóa khỏi hệ thống`,
+                    'success'
+                )
                 axios.delete(`http://localhost:3001/books/${bookId}`)
                 .then(()=> {
                     setUpdate(value => value +1)
                 })
-                Swal.fire(
-                    'Đã xóa',
-                    `${books.name} đã bị xóa khỏi hệ thống`,
-                    'success'
-                )
+                
             }
         })
     }
@@ -70,8 +73,8 @@ export default function Books() {
                                 <td>{book.library}</td>
                                 <td>{book.status}</td>
                                 <td>{book.borrows}</td>
-                                <td><Button><i class="bi bi-pencil-fill"></i></Button></td>
-                                <td><Button id={book.id} onClick={()=>handleDelete(book.id)}><i class="bi bi-x-lg"></i></Button></td>
+                                <td><Button><i className="bi bi-pencil-fill"></i></Button></td>
+                                <td><Button id={book.id} onClick={()=>handleDelete(book.id)}><i className="bi bi-x-lg"></i></Button></td>
                             </tr>
                         ))}
                     </tbody>

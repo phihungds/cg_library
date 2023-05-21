@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../module-css/login-style.css'
+import '../../module-css/font.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,12 +14,12 @@ export default function Login() {
     const [users, setUser] = useState([])
 
     useEffect(() => {
-        axios.get(`https://my-json-server.typicode.com/phihungds/cg-libraries-db/users`)
+        axios.get(`http://localhost:3001/users`)
             .then((res) => {
                 setUser(res.data)
             })
             .catch((err) => { console.log(err) })
-            
+             
     }, [])
 
     const handleChange = (event) => {
@@ -50,7 +51,7 @@ export default function Login() {
         <div className="wrapper">
             <div className="inner">
                 <form>
-                    <h1>CG LIBRARIES</h1>
+                    <h1>LIBRARIES MANAGER</h1>
                     {/* <i class="bi bi-book-half"></i> */}
                     <h3>Log In</h3>
                     <div className="mb-3">

@@ -6,3 +6,17 @@
     font-family: franklin;
     src: url(../fonts/LibreFranklin-Regular.ttf);
 }
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #29648a !important;
+    border-color: #464866;
+  }
+  .btn-primary:hover {
+    background-color: #464866 !important;
+    border-color: #29648a;
+  }
+  /* .form-control:focus {
+    border: #29648a 1px solid;
+    box-shadow: 0 0 3px #29648a;
+    outline-offset: 0px;
+    outline: none;
+  } */
